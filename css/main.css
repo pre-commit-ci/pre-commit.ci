@@ -1,0 +1,16 @@
+.pc-top-shelf {
+    padding: 3rem 0 1rem;
+}
+
+.pc-top-shelf a {
+    color: #f8f9fa;
+    text-decoration: underline;
+}
+.pc-top-shelf a:hover {
+    text-decoration: none;
+}
+
+.pc-logo {
+    width: 5rem;
+    height: 5rem;
+}
