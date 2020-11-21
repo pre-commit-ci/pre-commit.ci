@@ -1,3 +1,2 @@
 markdown-to-presentation>=0.0.12
 markdown-code-blocks>=3.0.0
-yelp-cheetah

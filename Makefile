@@ -6,11 +6,8 @@ venv: requirements-dev.txt Makefile
 	virtualenv venv
 	venv/bin/pip install -r requirements-dev.txt
 
-%.py: %.tmpl venv
-	venv/bin/cheetah-compile $<
-
-%.html: %.py venv
-	venv/bin/python $< > $@
+index.html: venv bin/make-index index.html.tmpl content.md
+	venv/bin/python bin/make-index
 
 .PHONY: push
 push: venv
@@ -19,6 +16,6 @@ push: venv
 
 .PHONY: clean
 clean:
-	rm -rf venv index.html index.py
+	rm -rf venv index.html
 
 .SECONDARY:
