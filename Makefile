@@ -12,7 +12,7 @@ index.html: venv bin/make-index index.html.tmpl content.md
 .PHONY: push
 push: venv
 	venv/bin/markdown-to-presentation push \
-		.nojekyll README.md CNAME *.html favicon.ico css img
+		.nojekyll README.md CNAME *.html favicon.ico img
 
 .PHONY: clean
 clean:
