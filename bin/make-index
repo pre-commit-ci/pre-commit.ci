@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+import html
+import re
+from typing import Optional
+
+import markdown_code_blocks
+
+ID_RE = re.compile(r' #([a-z0-9-]+)$')
+SPECIAL_CHARS_RE = re.compile('[^a-z0-9 _-]')
+
+
+class Renderer(markdown_code_blocks.CodeRenderer):
+    def heading(self, text: str, level: int) -> str:
+        match = ID_RE.search(text)
+        text = ID_RE.sub('', text)
+        if match:
+            h_id = match[1]
+        else:
+            h_id = SPECIAL_CHARS_RE.sub('', text.lower()).replace(' ', '-')
+        return (
+            f'<h{level} id="{h_id}">'
+            f'    {text} <small><a href="#{h_id}">¶</a></small>'
+            f'</h{level}> <hr class="my-3">'
+        )
+
+    def image(
+            self,
+            src: str,
+            alt: str = '',
+            title: Optional[str] = None,
+    ) -> str:
+        return (
+            f'<img '
+            f'    src="{html.escape(src)}"'
+            f'    alt="{html.escape(alt)}"'
+            f'    class="img-fluid img-thumbnail"'
+            f'>'
+        )
+
+
+def main():
+    with open('index.html.tmpl') as f:
+        tmpl = f.read()
+    with open('content.md') as f:
+        src = f.read()
+    rendered = markdown_code_blocks.highlight(src, Renderer=Renderer)
+    with open('index.html', 'w') as f:
+        f.write(tmpl.replace('CONTENT', rendered))
+
+
+if __name__ == '__main__':
+    exit(main())

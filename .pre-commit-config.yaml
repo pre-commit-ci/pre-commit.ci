@@ -30,11 +30,6 @@ repos:
     hooks:
     -   id: add-trailing-comma
         args: [--py36-plus]
--   repo: https://github.com/asottile/cheetah_lint
-    rev: v1.1.0
-    hooks:
-    -   id: cheetah-flake
-    -   id: cheetah-reorder-imports
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.790
     hooks:

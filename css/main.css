@@ -10,3 +10,23 @@
     width: 5rem;
     height: 5rem;
 }
+
+a {
+    color: #6c757d;
+}
+
+a:hover {
+    color: #343a40;
+}
+
+h1 small, h2 small, h3 small {
+    display: none;
+}
+
+h1:hover small, h2:hover small, h3:hover small {
+    display: inline;
+}
+
+h2 {
+    color: black;
+}
