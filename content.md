@@ -16,8 +16,7 @@ faster builds!
 request, pre-commit.ci will automatically fix the pull request.
 
 pre-commit.ci will run on all pull request commits, but will not push for
-commits made by bots.  if you'd like to force pre-commit.ci to fix a commit
-made by a bot, you can [trigger a re-run](#re-running-a-pull-request).
+commits made by bots.
 
 ![pre-commit.ci auto fixing a pull request](img/autofix.png)
 
