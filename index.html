@@ -86,18 +86,18 @@
 is supported, more to come in the future!</p>
 <p><strong>configuration:</strong> zero configuration setup -- nothing is needed beyond the
 <code>.pre-commit-config.yaml</code> file you already have!</p>
-<p><strong>caching:</strong> tool caching is baked in and shared across all users.  this means
-that the more users there are of pre-commit.ci, the more likely you will get
-faster builds!</p>
-<p><img     src="img/build.png"    alt="pre-commit.ci build output"    class="img-fluid img-thumbnail"></p>
 <p><strong>auto fixing pull requests:</strong> if tools make changes to files during a pull
 request, pre-commit.ci will automatically fix the pull request.</p>
 <p>pre-commit.ci will run on all pull request commits, but will not push for
 commits made by bots.</p>
 <p><img     src="img/autofix.png"    alt="pre-commit.ci auto fixing a pull request"    class="img-fluid img-thumbnail"></p>
+<p><strong>caching:</strong> tool caching is baked in and shared across all users.  this means
+that the more users there are of pre-commit.ci, the more likely you will get
+faster builds!</p>
+<p><img     src="img/build.png"    alt="pre-commit.ci build output"    class="img-fluid img-thumbnail"></p>
 <p><strong>automatic updates:</strong> pre-commit.ci will periodically <a href="https://pre-commit.com/#pre-commit-autoupdate">autoupdate</a> your
 configuration ensuring that your hook versions are kept up to date.  this
-autoupdate is currently scheduled weekly at approximately 18:00 UTC.</p>
+autoupdate is currently scheduled weekly at approximately 18:00 UTC Monday.</p>
 <p>here is <a href="https://github.com/asottile/pyupgrade/pull/365">an example autoupdate pull request</a>.</p>
 <p><img     src="img/autoupdate.png"    alt="pre-commit.ci auto updating a repository"    class="img-fluid img-thumbnail"></p>
 <p><strong>re-running a pull request</strong>: you can trigger a re-run on a pull request by
