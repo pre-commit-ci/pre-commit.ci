@@ -34,6 +34,9 @@ here is [an example autoupdate pull request].
 **re-running a pull request**: you can trigger a re-run on a pull request by
 closing and re-opening.
 
+**skipping push runs**: skip a run by putting `[skip ci]`, `[ci skip]`,
+`[skip pre-commit.ci]`, or `[pre-commit.ci skip]` in the commit message.
+
 ## following the development
 
 - development is streamed on [twitch]
