@@ -6,12 +6,6 @@ is supported, more to come in the future!
 **configuration:** zero configuration setup -- nothing is needed beyond the
 `.pre-commit-config.yaml` file you already have!
 
-**caching:** tool caching is baked in and shared across all users.  this means
-that the more users there are of pre-commit.ci, the more likely you will get
-faster builds!
-
-![pre-commit.ci build output](img/build.png)
-
 **auto fixing pull requests:** if tools make changes to files during a pull
 request, pre-commit.ci will automatically fix the pull request.
 
@@ -20,9 +14,15 @@ commits made by bots.
 
 ![pre-commit.ci auto fixing a pull request](img/autofix.png)
 
+**caching:** tool caching is baked in and shared across all users.  this means
+that the more users there are of pre-commit.ci, the more likely you will get
+faster builds!
+
+![pre-commit.ci build output](img/build.png)
+
 **automatic updates:** pre-commit.ci will periodically [autoupdate] your
 configuration ensuring that your hook versions are kept up to date.  this
-autoupdate is currently scheduled weekly at approximately 18:00 UTC.
+autoupdate is currently scheduled weekly at approximately 18:00 UTC Monday.
 
 here is [an example autoupdate pull request].
 
