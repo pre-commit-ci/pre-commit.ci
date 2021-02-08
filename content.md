@@ -41,6 +41,33 @@ closing and re-opening.
 **skipping push runs**: skip a run by putting `[skip ci]`, `[ci skip]`,
 `[skip pre-commit.ci]`, or `[pre-commit.ci skip]` in the commit message.
 
+### configuration
+
+pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
+
+```table
+=r=
+    =c= [`skip`](_#configuration-skip)
+    =c= (optional, default: `[]`) a list of hook ids to skip only in
+        pre-commit.ci
+
+        for example:
+
+
+        ```yaml
+        ci:
+            skip: [pylint]
+
+        repos:
+        -   repo: local
+            hooks:
+            -   id: pylint
+                # ...
+        ```
+
+        this is equivalent to running [`SKIP=pylint pre-commit ...`](https://pre-commit.com/#temporarily-disabling-hooks)
+```
+
 ## following the development
 
 - development is streamed on [twitch]

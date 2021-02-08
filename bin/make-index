@@ -1,15 +1,89 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import html
 import re
-from typing import Optional
 
 import markdown_code_blocks
 
 ID_RE = re.compile(r' #([a-z0-9-]+)$')
 SPECIAL_CHARS_RE = re.compile('[^a-z0-9 _-]')
 
+ROW = '=r='
+COL = '    =c= '
+INDENT = ' ' * 8
+SELF_LINK_PREFIX = '_#'
+
+
+def _render_table(code: str) -> str:
+    """Renders our custom "table" type
+
+    ```table
+    =r=
+        =c= col1
+        =c= col2
+    =r=
+        =c= col3
+        =c= col4
+    ```
+
+    renders to
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr><td>col1</td><td>col2</td></tr>
+            <tr><td>col3</td><td>col4</td></tr>
+        </tbody>
+    </table>
+    """
+    output = ['<table class="table table-bordered"><tbody>']
+    in_row = False
+    col_buffer = None
+
+    def _maybe_end_col() -> None:
+        nonlocal col_buffer
+        if col_buffer is not None:
+            output.append(f'<td>{md(col_buffer)}</td>')
+            col_buffer = None
+
+    def _maybe_end_row() -> None:
+        nonlocal in_row
+        if in_row:
+            output.append('</tr>')
+            in_row = False
+
+    for line in code.splitlines(True):
+        if line.startswith(ROW):
+            _maybe_end_col()
+            _maybe_end_row()
+            in_row = True
+            output.append('<tr>')
+        elif line.startswith(COL):
+            _maybe_end_col()
+            col_buffer = line[len(COL):]
+        elif col_buffer is not None:
+            if line == '\n':
+                col_buffer += line
+            else:
+                assert line.startswith(INDENT), line
+                col_buffer += line[len(INDENT):]
+        else:
+            raise AssertionError(line)
+
+    _maybe_end_col()
+    _maybe_end_row()
+    output.append('</tbody></table>')
+    return ''.join(output)
+
 
 class Renderer(markdown_code_blocks.CodeRenderer):
+    def link(self, link: str, text: str | None, title: str | None) -> str:
+        if link.startswith(SELF_LINK_PREFIX):
+            a_id = link[len(SELF_LINK_PREFIX):]
+            return f'<a id="{a_id}" href="#{a_id}">{text}</a>'
+        else:
+            return super().link(link, text, title)
+
     def heading(self, text: str, level: int) -> str:
         match = ID_RE.search(text)
         text = ID_RE.sub('', text)
@@ -17,17 +91,20 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             h_id = match[1]
         else:
             h_id = SPECIAL_CHARS_RE.sub('', text.lower()).replace(' ', '-')
-        return (
+        ret = (
             f'<h{level} id="{h_id}">'
             f'    {text} <small><a href="#{h_id}">¶</a></small>'
-            f'</h{level}> <hr class="my-3">'
+            f'</h{level}>'
         )
+        if level < 3:
+            ret += '<hr class="my-3">'
+        return ret
 
     def image(
             self,
             src: str,
             alt: str = '',
-            title: Optional[str] = None,
+            title: str | None = None,
     ) -> str:
         return (
             f'<img '
@@ -37,15 +114,24 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             f'>'
         )
 
+    def block_code(self, code: str, info: str | None = None) -> str:
+        if info == 'table':
+            return _render_table(code)
+        else:
+            return super().block_code(code, info)
+
+
+def md(src: str) -> str:
+    return markdown_code_blocks.highlight(src, Renderer=Renderer)
+
 
 def main():
     with open('index.html.tmpl') as f:
         tmpl = f.read()
     with open('content.md') as f:
         src = f.read()
-    rendered = markdown_code_blocks.highlight(src, Renderer=Renderer)
     with open('index.html', 'w') as f:
-        f.write(tmpl.replace('CONTENT', rendered))
+        f.write(tmpl.replace('CONTENT', md(src)))
 
 
 if __name__ == '__main__':
