@@ -56,6 +56,69 @@
     footer {
         font-size: .825rem;
     }
+
+    /* wrap table headers */
+    @media (max-width: 767.98px) {
+        .table-bordered td:first-child {
+            background: #eff0f2;
+        }
+
+        .table-bordered td {
+            display: block;
+        }
+    }
+
+    /* remove double spacing in tables */
+    td > :last-child {
+        margin: 0;
+    }
+
+    pre {
+        background-color: #f5f5f5;
+        border: 1px solid #cfcfcf;
+        border-radius: .25rem;
+        padding: .5rem;
+    }
+
+    code {
+        color: #e83e8c !important;
+    }
+
+    .highlight .hll { background-color: #ffc; }
+    .highlight .c { color: #008000; } /* Comment */
+    .highlight .err { border: 1px solid #ff0; } /* Error */
+    .highlight .k { color: #00f; } /* Keyword */
+    .highlight .cm { color: #008000; } /* Comment.Multiline */
+    .highlight .cp { color: #00f; } /* Comment.Preproc */
+    .highlight .c1 { color: #008000; } /* Comment.Single */
+    .highlight .cs { color: #008000; } /* Comment.Special */
+    .highlight .ge { font-style: italic; } /* Generic.Emph */
+    .highlight .gh { font-weight: bold; } /* Generic.Heading */
+    .highlight .gp { font-weight: bold; } /* Generic.Prompt */
+    .highlight .gs { font-weight: bold; } /* Generic.Strong */
+    .highlight .gu { font-weight: bold; } /* Generic.Subheading */
+    .highlight .kc { color: #00f; } /* Keyword.Constant */
+    .highlight .kd { color: #00f; } /* Keyword.Declaration */
+    .highlight .kn { color: #00f; } /* Keyword.Namespace */
+    .highlight .kp { color: #00f; } /* Keyword.Pseudo */
+    .highlight .kr { color: #00f; } /* Keyword.Reserved */
+    .highlight .kt { color: #2b91af; } /* Keyword.Type */
+    .highlight .s { color: #a31515; } /* Literal.String */
+    .highlight .nc { color: #2b91af; } /* Name.Class */
+    .highlight .ow { color: #00f; } /* Operator.Word */
+    .highlight .sb { color: #a31515; } /* Literal.String.Backtick */
+    .highlight .sc { color: #a31515; } /* Literal.String.Char */
+    .highlight .sd { color: #a31515; } /* Literal.String.Doc */
+    .highlight .s2 { color: #a31515; } /* Literal.String.Double */
+    .highlight .se { color: #a31515; } /* Literal.String.Escape */
+    .highlight .sh { color: #a31515; } /* Literal.String.Heredoc */
+    .highlight .si { color: #a31515; } /* Literal.String.Interpol */
+    .highlight .sx { color: #a31515; } /* Literal.String.Other */
+    .highlight .sr { color: #a31515; } /* Literal.String.Regex */
+    .highlight .s1 { color: #a31515; } /* Literal.String.Single */
+    .highlight .ss { color: #a31515; } /* Literal.String.Symbol */
+    .highlight .gi { color: #070; }
+    .highlight .gd { color: #911; }
   </style>
 </head>
 
@@ -86,7 +149,7 @@
       Sign In With GitHub
     </a>
 
-    <h2 id="features">    features <small><a href="#features">¶</a></small></h2> <hr class="my-3"><p><strong>supported hosting platforms:</strong> currently only <a href="https://github.com">GitHub</a>
+    <h2 id="features">    features <small><a href="#features">¶</a></small></h2><hr class="my-3"><p><strong>supported hosting platforms:</strong> currently only <a href="https://github.com">GitHub</a>
 is supported, more to come in the future!</p>
 <p><strong>configuration:</strong> zero configuration setup -- nothing is needed beyond the
 <code>.pre-commit-config.yaml</code> file you already have!</p>
@@ -110,11 +173,26 @@ autoupdate is currently scheduled weekly at approximately 18:00 UTC Monday.</p>
 closing and re-opening.</p>
 <p><strong>skipping push runs</strong>: skip a run by putting <code>[skip ci]</code>, <code>[ci skip]</code>,
 <code>[skip pre-commit.ci]</code>, or <code>[pre-commit.ci skip]</code> in the commit message.</p>
-<h2 id="following-the-development">    following the development <small><a href="#following-the-development">¶</a></small></h2> <hr class="my-3"><ul>
+<h3 id="configuration">    configuration <small><a href="#configuration">¶</a></small></h3><p>pre-commit.ci is configured in <code>.pre-commit-config.yaml</code> in the <code>ci:</code> section.</p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="configuration-skip" href="#configuration-skip"><code>skip</code></a></p>
+</td><td><p>(optional, default: <code>[]</code>) a list of hook ids to skip only in
+pre-commit.ci</p>
+<p>for example:</p>
+<div class="highlight yaml"><pre><span></span><span class="nt">ci</span><span class="p">:</span>
+    <span class="nt">skip</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">pylint</span><span class="p p-Indicator">]</span>
+
+<span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+    <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pylint</span>
+        <span class="c1"># ...</span>
+</pre></div>
+<p>this is equivalent to running <a href="https://pre-commit.com/#temporarily-disabling-hooks"><code>SKIP=pylint pre-commit ...</code></a></p>
+</td></tr></tbody></table><h2 id="following-the-development">    following the development <small><a href="#following-the-development">¶</a></small></h2><hr class="my-3"><ul>
 <li>development is streamed on <a href="https://twitch.tv/anthonywritescode">twitch</a></li>
 <li>follow the <a href="https://groups.google.com/forum/#%21forum/pre-commit-ci/join">mailing list</a> for high level updates</li>
 </ul>
-<h2 id="sponsoring">    sponsoring <small><a href="#sponsoring">¶</a></small></h2> <hr class="my-3"><p>if you'd like to support the development there are two ways to sponsor:</p>
+<h2 id="sponsoring">    sponsoring <small><a href="#sponsoring">¶</a></small></h2><hr class="my-3"><p>if you'd like to support the development there are two ways to sponsor:</p>
 <ul>
 <li><a href="https://github.com/sponsors/asottile">github sponsors</a></li>
 <li><a href="https://opencollective.com/pre-commit">open collective</a></li>
