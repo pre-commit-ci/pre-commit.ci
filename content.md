@@ -66,6 +66,10 @@ pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
         ```
 
         this is equivalent to running [`SKIP=pylint pre-commit ...`](https://pre-commit.com/#temporarily-disabling-hooks)
+
+=r=
+    =c= [`submodules`](_#configuration-submodules)
+    =c= (optional, default: `false`) whether to recursive check out submodules
 ```
 
 ## following the development
