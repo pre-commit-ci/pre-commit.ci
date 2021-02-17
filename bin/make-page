@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import html
+import os.path
 import re
 
 import markdown_code_blocks
@@ -76,6 +78,11 @@ def _render_table(code: str) -> str:
     return ''.join(output)
 
 
+def _render_address(code: str) -> str:
+    content = '<br>'.join(code.splitlines())
+    return f'<address class="pl-4 border-left border-dark">{content}</address>'
+
+
 class Renderer(markdown_code_blocks.CodeRenderer):
     def link(self, link: str, text: str | None, title: str | None) -> str:
         if link.startswith(SELF_LINK_PREFIX):
@@ -117,6 +124,8 @@ class Renderer(markdown_code_blocks.CodeRenderer):
     def block_code(self, code: str, info: str | None = None) -> str:
         if info == 'table':
             return _render_table(code)
+        elif info == 'address':
+            return _render_address(code)
         else:
             return super().block_code(code, info)
 
@@ -126,12 +135,20 @@ def md(src: str) -> str:
 
 
 def main():
-    with open('index.html.tmpl') as f:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('tmpl')
+    parser.add_argument('content')
+    args = parser.parse_args()
+
+    base_name, _ = os.path.splitext(os.path.basename(args.content))
+    title = base_name.replace('_', ' ')
+
+    with open(args.tmpl) as f:
         tmpl = f.read()
-    with open('content.md') as f:
+    with open(args.content) as f:
         src = f.read()
-    with open('index.html', 'w') as f:
-        f.write(tmpl.replace('CONTENT', md(src)))
+    with open(f'{base_name}.html', 'w') as f:
+        f.write(tmpl.replace('CONTENT', md(src)).replace('TITLE', title))
 
 
 if __name__ == '__main__':

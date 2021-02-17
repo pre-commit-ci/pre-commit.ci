@@ -1,13 +1,16 @@
 .PHONY: all
-all: index.html
+all: index.html cookie_notice.html privacy_policy.html
 
 venv: requirements-dev.txt Makefile
 	rm -rf venv
 	virtualenv venv
 	venv/bin/pip install -r requirements-dev.txt
 
-index.html: venv bin/make-index index.html.tmpl content.md
-	venv/bin/python bin/make-index
+index.html: content/index.md venv bin/make-page tmpl/index.html.tmpl
+	venv/bin/python bin/make-page tmpl/index.html.tmpl $<
+
+%.html: content/%.md venv bin/make-page tmpl/other.html.tmpl
+	venv/bin/python bin/make-page tmpl/other.html.tmpl $<
 
 .PHONY: push
 push: venv
