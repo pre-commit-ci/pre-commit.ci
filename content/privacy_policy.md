@@ -14,16 +14,16 @@ When you visit our website [https://pre-commit.ci](https://pre-commit.ci)
 (the "**Website**"), and more generally, use any of our services (the
 "**Services**", which include the Website), we appreciate that you are
 trusting us with your personal information. We take your privacy very
-seriously. In this privacy notice, we seek to make clear how we collect, use
+seriously. In this Privacy Notice, we seek to make clear how we collect, use
 and disclose personal information from and about you. By visiting our website,
 or using our services, you are accepting the practices explained in this
 Privacy Notice, to the extent permitted by law.
 
-This privacy notice applies to all information collected through our Services
+This Privacy Notice applies to all information collected through our Services
 (which, as described above, includes our Website), as well as, any related
 services, sales, marketing, or events.
 
-Please read this privacy notice carefully as it will help you understand what
+Please read this Privacy Notice carefully as it will help you understand what
 we do with the information that we collect.
 
 ### What information do we collect?
@@ -109,7 +109,7 @@ such technologies and how you can refuse certain cookies is set out in our
 ### How long do we keep your information?
 
 We will only keep your personal information for as long as it is necessary for
-the purposes set out in this privacy notice, unless a longer retention period
+the purposes set out in this Privacy Notice, unless a longer retention period
 is required or permitted by law (such as tax, accounting or other legal
 requirements). No purpose in this notice will require us keeping your personal
 information for longer than the period of time in which users have an account
@@ -195,7 +195,7 @@ recognizing and implementing DNT signals has been finalized. As such, we do
 not currently respond to DNT browser signals or any other mechanism that
 automatically communicates your choice not to be tracked online. If a standard
 for online tracking is adopted that we must follow in the future, we will
-inform you about that practice in a revised version of this privacy notice.
+inform you about that practice in a revised version of this Privacy Notice.
 
 ### Do California residents have specific privacy rights?
 
@@ -310,7 +310,7 @@ in the context of:
   inquiries.
 
 More information about our data collection and sharing practices can be found
-in this privacy notice.
+in this Privacy Notice.
 
 You may contact us by email at
 [privacy@pre-commit.ci](mailto:privacy@pre-commit.ci), or by referring to the
@@ -412,12 +412,12 @@ how we handle your data, we would like to hear from you.
 
 ### Do we make updates to this policy?
 
-We may update this privacy notice from time to time. The updated version will
+We may update this Privacy Notice from time to time. The updated version will
 be indicated by an updated "Revised" date and the updated version will be
 effective as soon as it is accessible. If we make material changes to this
-privacy notice, we may notify you either by prominently posting a notice of
+Privacy Notice, we may notify you either by prominently posting a notice of
 such changes or by directly sending you a notification. We encourage you to
-review this privacy notice frequently to be informed of how we are protecting
+review this Privacy Notice frequently to be informed of how we are protecting
 your information.
 
 ### How can you contact us about this policy?
