@@ -259,6 +259,7 @@ twelve (12) months:
         federal law
     =c= Gender and date of birth
     =c= NO
+=r=
     =c= D. Commercial information
     =c= Transaction information, purchase history, financial details and
         payment information
