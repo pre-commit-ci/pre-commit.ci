@@ -159,7 +159,7 @@ autoupdate is currently scheduled weekly at approximately 18:00 UTC Monday.</p>
 <p>here is <a href="https://github.com/asottile/pyupgrade/pull/365">an example autoupdate pull request</a>.</p>
 <p><img     src="img/autoupdate.png"    alt="pre-commit.ci auto updating a repository"    class="img-fluid img-thumbnail"></p>
 <p><strong>re-running a pull request</strong>: you can trigger a re-run on a pull request by
-closing and re-opening.</p>
+commenting <code>pre-commit.ci run</code> (must appear on a line by itself).</p>
 <p><strong>skipping push runs</strong>: skip a run by putting <code>[skip ci]</code>, <code>[ci skip]</code>,
 <code>[skip pre-commit.ci]</code>, or <code>[pre-commit.ci skip]</code> in the commit message.</p>
 <h3 id="configuration">    configuration <small><a href="#configuration">¶</a></small></h3><p>pre-commit.ci is configured in <code>.pre-commit-config.yaml</code> in the <code>ci:</code> section.</p>
