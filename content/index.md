@@ -36,7 +36,7 @@ here is [an example autoupdate pull request].
 [an example autoupdate pull request]: https://github.com/asottile/pyupgrade/pull/365
 
 **re-running a pull request**: you can trigger a re-run on a pull request by
-closing and re-opening.
+commenting `pre-commit.ci run` (must appear on a line by itself).
 
 **skipping push runs**: skip a run by putting `[skip ci]`, `[ci skip]`,
 `[skip pre-commit.ci]`, or `[pre-commit.ci skip]` in the commit message.
