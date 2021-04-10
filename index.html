@@ -163,7 +163,11 @@ commenting <code>pre-commit.ci run</code> (must appear on a line by itself).</p>
 <p><strong>skipping push runs</strong>: skip a run by putting <code>[skip ci]</code>, <code>[ci skip]</code>,
 <code>[skip pre-commit.ci]</code>, or <code>[pre-commit.ci skip]</code> in the commit message.</p>
 <h3 id="configuration">    configuration <small><a href="#configuration">¶</a></small></h3><p>pre-commit.ci is configured in <code>.pre-commit-config.yaml</code> in the <code>ci:</code> section.</p>
-<table class="table table-bordered"><tbody><tr><td><p><a id="configuration-skip" href="#configuration-skip"><code>skip</code></a></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="configuration-autofix_prs" href="#configuration-autofix_prs"><code>autofix_prs</code></a></p>
+</td><td><p>(optional, default: <code>true</code>) whether to autofix pull requests.  when
+disabled, comment &quot;pre-commit.ci autofix&quot; on a pull request to
+manually trigger auto-fixing.</p>
+</td></tr><tr><td><p><a id="configuration-skip" href="#configuration-skip"><code>skip</code></a></p>
 </td><td><p>(optional, default: <code>[]</code>) a list of hook ids to skip only in
 pre-commit.ci</p>
 <p>for example:</p>
