@@ -3,8 +3,8 @@
 _last updated 2021-02-17_
 
 This Privacy Notice applies to your use of pre-commit.ci, any related
-websites, applications, or services owned and operated by Sottile Advisory
-Services LLC ("**pre-commit.ci**", "**we**", "**us**", "**our**"). We are
+websites, applications, or services owned and operated by pre-commit ci, LLC
+("**pre-commit.ci**", "**we**", "**us**", "**our**"). We are
 committed to protecting your personal information and your right to privacy.
 If you have any questions or concerns about this privacy notice, or our
 practices with regards to your personal information, please contact us at
@@ -331,9 +331,9 @@ We may use your personal information for our own business purposes, such as
 for undertaking internal research for technological development and
 demonstration. This is not considered to be "selling" of your personal data.
 
-Sottile Advisory Services LLC has not disclosed or sold any personal
+pre-commit ci, LLC has not disclosed or sold any personal
 information to third parties for a business or commercial purpose in the
-preceding 12 months. Sottile Advisory Services LLC will not sell personal
+preceding 12 months. pre-commit ci, LLC will not sell personal
 information in the future belonging to website visitors, users and other
 consumers.
 
@@ -427,7 +427,7 @@ If you have questions or comments about this notice, you may email us at
 [privacy@pre-commit.ci](mailto:privacy@pre-commit.ci) or by post to:
 
 ```address
-Sottile Advisory Services LLC
+pre-commit ci, LLC
 1244 Wooley Road
 Oxford, MI 48371
 United States

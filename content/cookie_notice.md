@@ -1,7 +1,7 @@
 # Cookie Notice
 
 This Cookie Notice applies to your use of pre-commit.ci, any related websites,
-applications, or services owned and operated by Sottile Advisory Services LLC
+applications, or services owned and operated by pre-commit ci, LLC
 ("**pre-commit.ci**", "**we**", "**us**", "**our**"). We use certain
 technologies to collect information through pre-commit.ci Services. In this
 Cookie Notice, we refer to these technologies, which include HTTP cookies,
