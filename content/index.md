@@ -77,6 +77,17 @@ pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
     =c= (optional, default: `false`) whether to recursive check out submodules
 ```
 
+## pricing
+
+pre-commit.ci will always be **free for open source repositories**.
+
+for private and organization repository support see the [GitHub Marketplace].
+
+for enterprise or on-prem solutions, contact [info@pre-commit.ci].
+
+[GitHub Marketplace]: https://github.com/marketplace/pre-commit-ci
+[info@pre-commit.ci]: mailto:info@pre-commit.ci
+
 ## following the development
 
 - development is streamed on [twitch]
