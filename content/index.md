@@ -52,6 +52,10 @@ pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
         disabled, comment "pre-commit.ci autofix" on a pull request to
         manually trigger auto-fixing.
 =r=
+    =c= [`autoupdate_commit_msg`](_#configuration-autoupdate_commit_msg)
+    =c= (optional, default: `'[pre-commit.ci] pre-commit autoupdate'`)
+        custom commit message for autoupdate PRs.
+=r=
     =c= [`skip`](_#configuration-skip)
     =c= (optional, default: `[]`) a list of hook ids to skip only in
         pre-commit.ci
