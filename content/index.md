@@ -47,6 +47,10 @@ pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
 
 ```table
 =r=
+    =c= [`autofix_commit_msg`](_#configuration-autofix_commit_msg)
+    =c= (optional, default: `'[pre-commit.ci] auto fixes [...]'`)
+        custom commit message for PR autofixes.
+=r=
     =c= [`autofix_prs`](_#configuration-autofix_prs)
     =c= (optional, default: `true`) whether to autofix pull requests.  when
         disabled, comment "pre-commit.ci autofix" on a pull request to
@@ -55,6 +59,10 @@ pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
     =c= [`autoupdate_commit_msg`](_#configuration-autoupdate_commit_msg)
     =c= (optional, default: `'[pre-commit.ci] pre-commit autoupdate'`)
         custom commit message for autoupdate PRs.
+=r=
+    =c= [`autoupdate_schedule`](_#configuration-autoupdate_schedule)
+    =c= (optional, default: `'weekly'`) control when the autoupdate runs,
+        possible values: `'weekly'`, `'monthly'`, `'quarterly'`.
 =r=
     =c= [`skip`](_#configuration-skip)
     =c= (optional, default: `[]`) a list of hook ids to skip only in
@@ -79,6 +87,21 @@ pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
 =r=
     =c= [`submodules`](_#configuration-submodules)
     =c= (optional, default: `false`) whether to recursive check out submodules
+```
+
+a full config with all the defaults:
+
+```yaml
+ci:
+    autofix_commit_msg: |
+        [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+        for more information, see https://pre-commit.ci
+    autofix_prs: true
+    autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+    autoupdate_schedule: weekly
+    skip: []
+    submodules: false
 ```
 
 ## pricing
