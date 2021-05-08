@@ -164,13 +164,19 @@ commenting <code>pre-commit.ci run</code> (must appear on a line by itself).</p>
 <p><strong>skipping push runs</strong>: skip a run by putting <code>[skip ci]</code>, <code>[ci skip]</code>,
 <code>[skip pre-commit.ci]</code>, or <code>[pre-commit.ci skip]</code> in the commit message.</p>
 <h3 id="configuration">    configuration <small><a href="#configuration">¶</a></small></h3><p>pre-commit.ci is configured in <code>.pre-commit-config.yaml</code> in the <code>ci:</code> section.</p>
-<table class="table table-bordered"><tbody><tr><td><p><a id="configuration-autofix_prs" href="#configuration-autofix_prs"><code>autofix_prs</code></a></p>
+<table class="table table-bordered"><tbody><tr><td><p><a id="configuration-autofix_commit_msg" href="#configuration-autofix_commit_msg"><code>autofix_commit_msg</code></a></p>
+</td><td><p>(optional, default: <code>'[pre-commit.ci] auto fixes [...]'</code>)
+custom commit message for PR autofixes.</p>
+</td></tr><tr><td><p><a id="configuration-autofix_prs" href="#configuration-autofix_prs"><code>autofix_prs</code></a></p>
 </td><td><p>(optional, default: <code>true</code>) whether to autofix pull requests.  when
 disabled, comment &quot;pre-commit.ci autofix&quot; on a pull request to
 manually trigger auto-fixing.</p>
 </td></tr><tr><td><p><a id="configuration-autoupdate_commit_msg" href="#configuration-autoupdate_commit_msg"><code>autoupdate_commit_msg</code></a></p>
 </td><td><p>(optional, default: <code>'[pre-commit.ci] pre-commit autoupdate'</code>)
 custom commit message for autoupdate PRs.</p>
+</td></tr><tr><td><p><a id="configuration-autoupdate_schedule" href="#configuration-autoupdate_schedule"><code>autoupdate_schedule</code></a></p>
+</td><td><p>(optional, default: <code>'weekly'</code>) control when the autoupdate runs,
+possible values: <code>'weekly'</code>, <code>'monthly'</code>, <code>'quarterly'</code>.</p>
 </td></tr><tr><td><p><a id="configuration-skip" href="#configuration-skip"><code>skip</code></a></p>
 </td><td><p>(optional, default: <code>[]</code>) a list of hook ids to skip only in
 pre-commit.ci</p>
@@ -187,7 +193,19 @@ pre-commit.ci</p>
 <p>this is equivalent to running <a href="https://pre-commit.com/#temporarily-disabling-hooks"><code>SKIP=pylint pre-commit ...</code></a></p>
 </td></tr><tr><td><p><a id="configuration-submodules" href="#configuration-submodules"><code>submodules</code></a></p>
 </td><td><p>(optional, default: <code>false</code>) whether to recursive check out submodules</p>
-</td></tr></tbody></table><h2 id="pricing">    pricing <small><a href="#pricing">¶</a></small></h2><hr class="my-3"><p>pre-commit.ci will always be <strong>free for open source repositories</strong>.</p>
+</td></tr></tbody></table><p>a full config with all the defaults:</p>
+<div class="highlight yaml"><pre><span></span><span class="nt">ci</span><span class="p">:</span>
+    <span class="nt">autofix_commit_msg</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">[pre-commit.ci] auto fixes from pre-commit.com hooks</span>
+
+        <span class="no">for more information, see https://pre-commit.ci</span>
+    <span class="nt">autofix_prs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">autoupdate_commit_msg</span><span class="p">:</span> <span class="s">&#39;[pre-commit.ci]</span><span class="nv"> </span><span class="s">pre-commit</span><span class="nv"> </span><span class="s">autoupdate&#39;</span>
+    <span class="nt">autoupdate_schedule</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weekly</span>
+    <span class="nt">skip</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+    <span class="nt">submodules</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+<h2 id="pricing">    pricing <small><a href="#pricing">¶</a></small></h2><hr class="my-3"><p>pre-commit.ci will always be <strong>free for open source repositories</strong>.</p>
 <p>for private and organization repository support see the <a href="https://github.com/marketplace/pre-commit-ci">GitHub Marketplace</a>.</p>
 <p>for enterprise or on-prem solutions, contact <a href="mailto:info@pre-commit.ci">info@pre-commit.ci</a>.</p>
 <h2 id="following-the-development">    following the development <small><a href="#following-the-development">¶</a></small></h2><hr class="my-3"><ul>
