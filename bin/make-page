@@ -79,8 +79,8 @@ def _render_table(code: str) -> str:
 
 
 def _render_address(code: str) -> str:
-    content = '<br>'.join(code.splitlines())
-    return f'<address class="pl-4 border-left border-dark">{content}</address>'
+    lines = '<br>'.join(code.splitlines())
+    return f'<address class="ps-4 border-start border-dark">{lines}</address>'
 
 
 class Renderer(markdown_code_blocks.CodeRenderer):
@@ -100,7 +100,7 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             h_id = SPECIAL_CHARS_RE.sub('', text.lower()).replace(' ', '-')
         ret = (
             f'<h{level} id="{h_id}">'
-            f'    {text} <small><a href="#{h_id}">¶</a></small>'
+            f'    {text} <small><a href="#{h_id}" class="text-secondary">¶</a></small>'  # noqa: E501
             f'</h{level}>'
         )
         if level < 3:
