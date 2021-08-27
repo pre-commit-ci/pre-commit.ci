@@ -166,6 +166,8 @@ commenting <code>pre-commit.ci run</code> (must appear on a line by itself).</p>
 <p><strong>skipping push runs</strong>: skip a run by putting <code>[skip ci]</code>, <code>[ci skip]</code>,
 <code>[skip pre-commit.ci]</code>, or <code>[pre-commit.ci skip]</code> in the commit message.</p>
 <h3 id="configuration">    configuration <small><a href="#configuration" class="text-secondary">¶</a></small></h3><p>pre-commit.ci is configured in <code>.pre-commit-config.yaml</code> in the <code>ci:</code> section.</p>
+<p><strong>note</strong>: <code>ci:</code> configuration is entirely optional and will assume the defaults
+below.</p>
 <table class="table table-bordered"><tbody><tr><td><p><a id="configuration-autofix_commit_msg" href="#configuration-autofix_commit_msg"><code>autofix_commit_msg</code></a></p>
 </td><td><p>(optional, default: <code>'[pre-commit.ci] auto fixes [...]'</code>)
 custom commit message for PR autofixes.</p>
