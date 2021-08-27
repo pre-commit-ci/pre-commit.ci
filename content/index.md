@@ -45,6 +45,9 @@ commenting `pre-commit.ci run` (must appear on a line by itself).
 
 pre-commit.ci is configured in `.pre-commit-config.yaml` in the `ci:` section.
 
+**note**: `ci:` configuration is entirely optional and will assume the defaults
+below.
+
 ```table
 =r=
     =c= [`autofix_commit_msg`](_#configuration-autofix_commit_msg)
