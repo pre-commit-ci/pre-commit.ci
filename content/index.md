@@ -59,6 +59,16 @@ below.
         disabled, comment "pre-commit.ci autofix" on a pull request to
         manually trigger auto-fixing.
 =r=
+    =c= [`autoupdate_branch`](_#configuration-autoupdate_branch)
+    =c= (optional: default `''`) branch to send autoupdate PRs to.
+
+        by default, pre-commit.ci will update the default branch of the
+        repository.
+
+        this configuration option and other autoupdate settings will be
+        read from the `.pre-commit-config.yaml` in the default branch of
+        the repository.
+=r=
     =c= [`autoupdate_commit_msg`](_#configuration-autoupdate_commit_msg)
     =c= (optional, default: `'[pre-commit.ci] pre-commit autoupdate'`)
         custom commit message for autoupdate PRs.
@@ -101,6 +111,7 @@ ci:
 
         for more information, see https://pre-commit.ci
     autofix_prs: true
+    autoupdate_branch: ''
     autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
     autoupdate_schedule: weekly
     skip: []
