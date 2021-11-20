@@ -175,6 +175,13 @@ custom commit message for PR autofixes.</p>
 </td><td><p>(optional, default: <code>true</code>) whether to autofix pull requests.  when
 disabled, comment &quot;pre-commit.ci autofix&quot; on a pull request to
 manually trigger auto-fixing.</p>
+</td></tr><tr><td><p><a id="configuration-autoupdate_branch" href="#configuration-autoupdate_branch"><code>autoupdate_branch</code></a></p>
+</td><td><p>(optional: default <code>''</code>) branch to send autoupdate PRs to.</p>
+<p>by default, pre-commit.ci will update the default branch of the
+repository.</p>
+<p>this configuration option and other autoupdate settings will be
+read from the <code>.pre-commit-config.yaml</code> in the default branch of
+the repository.</p>
 </td></tr><tr><td><p><a id="configuration-autoupdate_commit_msg" href="#configuration-autoupdate_commit_msg"><code>autoupdate_commit_msg</code></a></p>
 </td><td><p>(optional, default: <code>'[pre-commit.ci] pre-commit autoupdate'</code>)
 custom commit message for autoupdate PRs.</p>
@@ -204,6 +211,7 @@ pre-commit.ci</p>
 
         <span class="no">for more information, see https://pre-commit.ci</span>
     <span class="nt">autofix_prs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">autoupdate_branch</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
     <span class="nt">autoupdate_commit_msg</span><span class="p">:</span> <span class="s">&#39;[pre-commit.ci]</span><span class="nv"> </span><span class="s">pre-commit</span><span class="nv"> </span><span class="s">autoupdate&#39;</span>
     <span class="nt">autoupdate_schedule</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weekly</span>
     <span class="nt">skip</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
