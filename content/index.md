@@ -135,7 +135,7 @@ for enterprise or on-prem solutions, contact [info@pre-commit.ci].
 - follow the [mailing list] for high level updates
 
 [twitch]: https://twitch.tv/anthonywritescode
-[mailing list]: https://groups.google.com/forum/#!forum/pre-commit-ci/join
+[mailing list]: https://groups.google.com/g/pre-commit-ci
 
 ## sponsoring
 
