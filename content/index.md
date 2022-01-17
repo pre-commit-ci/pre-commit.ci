@@ -26,7 +26,7 @@ faster builds!
 
 **automatic updates:** pre-commit.ci will periodically [autoupdate] your
 configuration ensuring that your hook versions are kept up to date.  this
-autoupdate is currently scheduled weekly at approximately 18:00 UTC Monday.
+autoupdate is currently scheduled weekly at approximately 16:00 UTC Monday.
 
 here is [an example autoupdate pull request].
 
