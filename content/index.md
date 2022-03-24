@@ -16,7 +16,7 @@ commits made by bots.
 
 **speed:** much faster than comparable, free CI systems
 
-[![chart comparing CI speeds](https://raw.githubusercontent.com/pre-commit-ci-demo/demo/master/img/2020-12-15_noop.svg)](https://github.com/pre-commit-ci-demo/demo#results)
+[![chart comparing CI speeds](https://raw.githubusercontent.com/pre-commit-ci-demo/demo/main/img/2020-12-15_noop.svg)](https://github.com/pre-commit-ci-demo/demo#results)
 
 **caching:** tool caching is baked in and shared across all users.  this means
 that the more users there are of pre-commit.ci, the more likely you will get
