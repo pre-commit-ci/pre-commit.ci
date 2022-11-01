@@ -99,7 +99,7 @@ below.
 
 =r=
     =c= [`submodules`](_#configuration-submodules)
-    =c= (optional, default: `false`) whether to recursive check out submodules
+    =c= (optional, default: `false`) whether to recursively check out submodules
 ```
 
 a full config with all the defaults:
