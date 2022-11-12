@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>pre-commit.ci - lite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <style>
+    a {
+        color: #3a7db9;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #343a40;
+        text-decoration: underline;
+    }
+
+    nav a:hover {
+        text-decoration: none;
+    }
+
+    h1 small, h2 small, h3 small {
+        display: none;
+    }
+
+    h1:hover small, h2:hover small, h3:hover small {
+        display: inline;
+    }
+
+    h2 {
+        color: black;
+    }
+
+    footer {
+        font-size: .825rem;
+    }
+
+    /* wrap table headers */
+/*
+    @media (max-width: 767.98px) {
+        .table-bordered td:first-child {
+            background: #eff0f2;
+        }
+
+        .table-bordered td {
+            display: block;
+        }
+    }
+*/
+
+    /* remove double spacing in tables */
+    td > :last-child {
+        margin: 0;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    tr > :first-child {
+        text-align: left;
+    }
+
+    pre {
+        background-color: #f5f5f5;
+        color: #333;
+        border: 1px solid #cfcfcf;
+        border-radius: .375rem;
+        padding: 0.5rem;
+    }
+
+  </style>
+</head>
+
+<body class="bg-secondary">
+  <div class="bg-dark text-light">
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+          <a class="navbar-brand text-decoration-none" href="/">
+            <img src="https://pre-commit.ci/img/logo.svg" width="42" height="42">
+            pre-commit.ci
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav me-auto">
+              <a class="nav-item nav-link" href="/">home</a>
+              <a class="nav-item nav-link" href="https://pre-commit.ci">docs</a>
+              <a class="nav-item nav-link" href="https://pre-commit.com">pre-commit.com</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container bg-light text-dark py-4">
+    <div class="alert alert-secondary">
+      <strong>pre-commit.ci lite</strong> is an add-on for GitHub Actions which
+      safely auto fixes PRs
+    </div>
+
+    <p><img     src="img/lite.png"    alt="pre-commit.ci lite fixing a PR"    class="img-fluid img-thumbnail"></p>
+<h2 id="setup">    setup <small><a href="#setup" class="text-secondary">¶</a></small></h2><hr class="my-3"><ol>
+<li><p>install the <a href="https://github.com/apps/pre-commit-ci-lite/installations/new">GitHub Application</a> on the relevant repositories</p>
+</li>
+<li><p>add the <a href="https://github.com/pre-commit-ci/lite-action">GitHub action</a> to your workflow as the last step in your job:</p>
+<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v0.0.3</span><span class="w"></span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span><span class="w"></span>
+</pre></div>
+</li>
+</ol>
+<p><em>note:</em> the step must have either the default <code>name</code> or contain the text
+<code>pre-commit-ci-lite</code>.  the application uses this to find the right workflow.</p>
+<h2 id="differences-with-full-version">    differences with full version <small><a href="#differences-with-full-version" class="text-secondary">¶</a></small></h2><hr class="my-3"><p><strong>pre-commit.ci lite</strong> only provides auto fixing of PRs, but allows the
+flexibility of using GitHub Actions as a runner.</p>
+<table class="table table-bordered"><tbody><tr><td><p><strong>feature</strong></p>
+</td><td><p><strong>full</strong></p>
+</td><td><p><strong>lite</strong></p>
+</td></tr><tr><td><p>auto fixing PRs</p>
+</td><td><p>✅</p>
+</td><td><p>✅</p>
+</td></tr><tr><td><p>periodic automatic hook updates</p>
+</td><td><p>✅</p>
+</td><td></td></tr><tr><td><p>speed</p>
+</td><td><p>✅</p>
+</td><td></td></tr><tr><td><p>arbitrary setup (<code>language: system</code>, etc.)</p>
+</td><td></td><td><p>✅</p>
+</td></tr><tr><td><p>other code modification tools</p>
+</td><td></td><td><p>✅</p>
+</td></tr></tbody></table><h2 id="example-using-pre-commit-action">    example using <a href="https://github.com/pre-commit/action">pre-commit/action</a>  <small><a href="#example-using-pre-commit-action" class="text-secondary">¶</a></small></h2><hr class="my-3"><p>technically <em>pre-commit.ci lite</em> works for any code modification, though it was
+built with <code>pre-commit</code> in mind.  here is an example workflow:</p>
+<div class="highlight yaml"><pre><span></span><span class="nt">on</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">test-me-*</span><span class="p p-Indicator">]</span><span class="w"></span>
+
+<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span><span class="w"></span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.x</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit/action@v3.0.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v0.0.3</span><span class="w"></span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span><span class="w"></span>
+</pre></div>
+
+  </div>
+  <footer class="container text-light text-center p-2">
+    &copy; pre-commit.ci &nbsp;&middot;&nbsp;
+    <a class="text-light" href="mailto:info@pre-commit.ci">contact</a> &nbsp;&middot;&nbsp;
+    <a class="text-light" href="mailto:security@pre-commit.ci">security</a> &nbsp;&middot;&nbsp;
+    <a class="text-light" href="https://pre-commit.ci/privacy_policy.html">privacy policy</a> &nbsp;&middot;&nbsp;
+    <a class="text-light" href="https://pre-commit.ci/cookie_notice.html">cookie notice</a> &nbsp;&middot;&nbsp;
+    <a class="text-light" href="https://github.com/pre-commit-ci/issues">issues</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+</body>
+</html>
