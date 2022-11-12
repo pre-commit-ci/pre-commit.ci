@@ -63,6 +63,9 @@ def _render_table(code: str) -> str:
         elif line.startswith(COL):
             _maybe_end_col()
             col_buffer = line[len(COL):]
+        elif line.rstrip() == COL.rstrip():  # empty column
+            _maybe_end_col()
+            col_buffer = ''
         elif col_buffer is not None:
             if line == '\n':
                 col_buffer += line
