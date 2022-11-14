@@ -118,6 +118,11 @@ ci:
     submodules: false
 ```
 
+## alternative using github actions
+
+pre-commit.ci also provides a [lite version](./lite.html) which adds auto
+fixing to GitHub actions.
+
 ## pricing
 
 pre-commit.ci will always be **free for open source repositories**.
