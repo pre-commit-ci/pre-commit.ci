@@ -91,13 +91,17 @@
       <strong>pre-commit.ci lite</strong> is an add-on for GitHub Actions which
       safely auto fixes PRs
     </div>
+    <div class="alert alert-warning">
+      <strong>pre-commit.ci lite</strong> is currently in open beta -- please
+      report any issues to <a href="https://github.com/pre-commit-ci/issues">issue tracker</a>
+    </div>
 
     <p><img     src="img/lite.png"    alt="pre-commit.ci lite fixing a PR"    class="img-fluid img-thumbnail"></p>
 <h2 id="setup">    setup <small><a href="#setup" class="text-secondary">¶</a></small></h2><hr class="my-3"><ol>
 <li><p>install the <a href="https://github.com/apps/pre-commit-ci-lite/installations/new">GitHub Application</a> on the relevant repositories</p>
 </li>
 <li><p>add the <a href="https://github.com/pre-commit-ci/lite-action">GitHub action</a> to your workflow as the last step in your job:</p>
-<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v0.0.3</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v1.0.0</span><span class="w"></span>
 <span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span><span class="w"></span>
 </pre></div>
 </li>
@@ -136,7 +140,7 @@ built with <code>pre-commit</code> in mind.  here is an example workflow:</p>
 <span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.x</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit/action@v3.0.0</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v0.0.3</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v1.0.0</span><span class="w"></span>
 <span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span><span class="w"></span>
 </pre></div>
 
