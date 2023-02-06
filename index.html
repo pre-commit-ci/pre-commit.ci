@@ -199,30 +199,30 @@ possible values: <code>'weekly'</code>, <code>'monthly'</code>, <code>'quarterly
 </td><td><p>(optional, default: <code>[]</code>) a list of hook ids to skip only in
 pre-commit.ci</p>
 <p>for example:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">ci</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pylint</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">ci</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pylint</span><span class="p p-Indicator">]</span>
 
-<span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span><span class="w"></span>
-<span class="w">        </span><span class="c1"># ...</span><span class="w"></span>
+<span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint</span>
+<span class="w">        </span><span class="c1"># ...</span>
 </pre></div>
 <p>this is equivalent to running <a href="https://pre-commit.com/#temporarily-disabling-hooks"><code>SKIP=pylint pre-commit ...</code></a></p>
 </td></tr><tr><td><p><a id="configuration-submodules" href="#configuration-submodules"><code>submodules</code></a></p>
 </td><td><p>(optional, default: <code>false</code>) whether to recursively check out submodules</p>
 </td></tr></tbody></table><p>a full config with all the defaults:</p>
-<div class="highlight yaml"><pre><span></span><span class="nt">ci</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">autofix_commit_msg</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">[pre-commit.ci] auto fixes from pre-commit.com hooks</span><span class="w"></span>
+<div class="highlight yaml"><pre><span></span><span class="nt">ci</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">autofix_commit_msg</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">[pre-commit.ci] auto fixes from pre-commit.com hooks</span>
 
-<span class="w">        </span><span class="no">for more information, see https://pre-commit.ci</span><span class="w"></span>
-<span class="w">    </span><span class="nt">autofix_prs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">autoupdate_branch</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">autoupdate_commit_msg</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[pre-commit.ci]</span><span class="nv"> </span><span class="s">pre-commit</span><span class="nv"> </span><span class="s">autoupdate&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">autoupdate_schedule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weekly</span><span class="w"></span>
-<span class="w">    </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">        </span><span class="no">for more information, see https://pre-commit.ci</span>
+<span class="w">    </span><span class="nt">autofix_prs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">autoupdate_branch</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">    </span><span class="nt">autoupdate_commit_msg</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[pre-commit.ci]</span><span class="nv"> </span><span class="s">pre-commit</span><span class="nv"> </span><span class="s">autoupdate&#39;</span>
+<span class="w">    </span><span class="nt">autoupdate_schedule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weekly</span>
+<span class="w">    </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">    </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 <h2 id="alternative-using-github-actions">    alternative using github actions <small><a href="#alternative-using-github-actions" class="text-secondary">¶</a></small></h2><hr class="my-3"><p>pre-commit.ci also provides a <a href="./lite.html">lite version</a> which adds auto
 fixing to GitHub actions.</p>
