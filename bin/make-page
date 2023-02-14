@@ -129,6 +129,16 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             return _render_table(code)
         elif info == 'address':
             return _render_address(code)
+        elif info is not None and info.startswith('status '):
+            _, status = info.split()
+            return (
+                f'<div class="status" id="{status}">'
+                f'  <div class="container run"></div>'
+                f'  <div class="container bg-light text-dark py-5">'
+                f'    {md(code)}'
+                f'   </div>'
+                f'</div>'
+            )
         else:
             return super().block_code(code, info)
 
