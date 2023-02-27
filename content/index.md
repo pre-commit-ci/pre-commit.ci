@@ -127,10 +127,13 @@ fixing to GitHub actions.
 
 pre-commit.ci will always be **free for open source repositories**.
 
+all paid plans also include [pre-commit.ci lite] pro at no additional cost.
+
 for private and organization repository support see the [GitHub Marketplace].
 
-for enterprise or on-prem solutions, contact [info@pre-commit.ci].
+for single-tenant or larger installations, contact [info@pre-commit.ci].
 
+[pre-commit.ci lite]: https://pre-commit.ci/lite
 [GitHub Marketplace]: https://github.com/marketplace/pre-commit-ci
 [info@pre-commit.ci]: mailto:info@pre-commit.ci
 
