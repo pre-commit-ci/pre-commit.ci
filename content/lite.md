@@ -13,6 +13,9 @@
 *note:* the step must have either the default `name` or contain the text
 `pre-commit-ci-lite`.  the application uses this to find the right workflow.
 
+*note:* the step must be contained in a job which is either by itself in the
+workflow or is the last job to finish in the workflow.
+
 ## differences with full version
 
 **pre-commit.ci lite** only provides auto fixing of PRs, but allows the
