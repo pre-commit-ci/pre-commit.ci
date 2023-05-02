@@ -108,6 +108,8 @@
 </ol>
 <p><em>note:</em> the step must have either the default <code>name</code> or contain the text
 <code>pre-commit-ci-lite</code>.  the application uses this to find the right workflow.</p>
+<p><em>note:</em> the step must be contained in a job which is either by itself in the
+workflow or is the last job to finish in the workflow.</p>
 <h2 id="differences-with-full-version">    differences with full version <small><a href="#differences-with-full-version" class="text-secondary">¶</a></small></h2><hr class="my-3"><p><strong>pre-commit.ci lite</strong> only provides auto fixing of PRs, but allows the
 flexibility of using GitHub Actions as a runner.</p>
 <table class="table table-bordered"><tbody><tr><td><p><strong>feature</strong></p>
