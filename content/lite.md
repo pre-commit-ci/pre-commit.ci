@@ -81,9 +81,9 @@ jobs:
 
 pre-commit.ci will always be **free for open source repositories**.
 
-for private and organization repository support see the [GitHub Marketplace] (_coming soon!_).
+for private and organization repository support see the [GitHub Marketplace].
 
 for single-tenant or larger installations, contact [info@pre-commit.ci].
 
-[GitHub Marketplace]: https://github.com/pre-commit-ci/issues/issues/168
+[GitHub Marketplace]: https://github.com/marketplace/pre-commit-ci-lite
 [info@pre-commit.ci]: mailto:info@pre-commit.ci
