@@ -6,7 +6,7 @@
 2. add the [GitHub action] to your workflow as the last step in your job:
 
    ```yaml
-       - uses: pre-commit-ci/lite-action@v1.0.1
+       - uses: pre-commit-ci/lite-action@v1.0.2
          if: always()
    ```
 
@@ -67,8 +67,8 @@ jobs:
     - uses: actions/setup-python@v4
       with:
         python-version: 3.x
-    - uses: pre-commit/action@v3.0.0
-    - uses: pre-commit-ci/lite-action@v1.0.1
+    - uses: pre-commit/action@v3.0.1
+    - uses: pre-commit-ci/lite-action@v1.0.2
       if: always()
 ```
 
