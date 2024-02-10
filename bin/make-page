@@ -130,9 +130,9 @@ class Renderer(markdown_code_blocks.CodeRenderer):
         elif info == 'address':
             return _render_address(code)
         elif info is not None and info.startswith('status '):
-            _, status = info.split()
+            _, status_id, status_class = info.split()
             return (
-                f'<div class="status" id="{status}">'
+                f'<div class="status {status_class}" id="{status_id}">'
                 f'  <div class="container run"></div>'
                 f'  <div class="container bg-light text-dark py-5">'
                 f'    {md(code)}'
