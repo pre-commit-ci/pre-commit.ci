@@ -59,6 +59,42 @@
         padding: 0.5rem;
     }
 
+    .highlight .hll { background-color: #ffc; }
+    .highlight .c { color: #008000; } /* Comment */
+    .highlight .err { border: 1px solid #ff0; } /* Error */
+    .highlight .k { color: #00f; } /* Keyword */
+    .highlight .cm { color: #008000; } /* Comment.Multiline */
+    .highlight .cp { color: #00f; } /* Comment.Preproc */
+    .highlight .c1 { color: #008000; } /* Comment.Single */
+    .highlight .cs { color: #008000; } /* Comment.Special */
+    .highlight .ge { font-style: italic; } /* Generic.Emph */
+    .highlight .gh { font-weight: bold; } /* Generic.Heading */
+    .highlight .gp { font-weight: bold; } /* Generic.Prompt */
+    .highlight .gs { font-weight: bold; } /* Generic.Strong */
+    .highlight .gu { font-weight: bold; } /* Generic.Subheading */
+    .highlight .kc { color: #00f; } /* Keyword.Constant */
+    .highlight .kd { color: #00f; } /* Keyword.Declaration */
+    .highlight .kn { color: #00f; } /* Keyword.Namespace */
+    .highlight .kp { color: #00f; } /* Keyword.Pseudo */
+    .highlight .kr { color: #00f; } /* Keyword.Reserved */
+    .highlight .kt { color: #2b91af; } /* Keyword.Type */
+    .highlight .s { color: #a31515; } /* Literal.String */
+    .highlight .nc { color: #2b91af; } /* Name.Class */
+    .highlight .ow { color: #00f; } /* Operator.Word */
+    .highlight .sb { color: #a31515; } /* Literal.String.Backtick */
+    .highlight .sc { color: #a31515; } /* Literal.String.Char */
+    .highlight .sd { color: #a31515; } /* Literal.String.Doc */
+    .highlight .s2 { color: #a31515; } /* Literal.String.Double */
+    .highlight .se { color: #a31515; } /* Literal.String.Escape */
+    .highlight .sh { color: #a31515; } /* Literal.String.Heredoc */
+    .highlight .si { color: #a31515; } /* Literal.String.Interpol */
+    .highlight .sx { color: #a31515; } /* Literal.String.Other */
+    .highlight .sr { color: #a31515; } /* Literal.String.Regex */
+    .highlight .s1 { color: #a31515; } /* Literal.String.Single */
+    .highlight .ss { color: #a31515; } /* Literal.String.Symbol */
+    .highlight .gi { color: #070; }
+    .highlight .gd { color: #911; }
+
   </style>
 </head>
 
@@ -140,6 +176,31 @@ built with <code>pre-commit</code> in mind.  here is an example workflow:</p>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit/action@v3.0.1</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-commit-ci/lite-action@v1.0.2</span>
 <span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span>
+</pre></div>
+<p>pre-commit ci will skip pushes made by bots to prevent infinite loops.
+to trigger an autofix in that scenario, set up a <code>labeled</code> trigger:</p>
+<div class="highlight diff"><pre><span></span><span class="gd">--- a/.github/workflows/pre-commit.yml</span>
+<span class="gi">+++ b/.github/workflows/pre-commit.yml</span>
+<span class="gu">@@ -1,13 +1,19 @@</span>
+<span class="w"> </span>on:
+<span class="w"> </span>  pull_request:
+<span class="gi">+    types: [labeled, opened, reopened, synchronize]</span>
+<span class="w"> </span>  push:
+<span class="w"> </span>    branches: [main, test-me-*]
+
+<span class="w"> </span>jobs:
+<span class="w"> </span>  main:
+<span class="gi">+    if: &quot;github.event.action != &#39;labeled&#39; || github.event.label.name == &#39;pre-commit ci run&#39;&quot;</span>
+<span class="w"> </span>    runs-on: ubuntu-latest
+<span class="w"> </span>    steps:
+<span class="w"> </span>    - uses: actions/checkout@v3
+<span class="gi">+    - run: gh pr edit ${{ github.event.number }} --remove-label &#39;pre-commit ci run&#39;</span>
+<span class="gi">+      if: github.event.action == &#39;labeled&#39; &amp;&amp; github.event.label.name == &#39;pre-commit ci run&#39;</span>
+<span class="gi">+      env:</span>
+<span class="gi">+        GH_TOKEN: ${{ github.token }}</span>
+<span class="w"> </span>    - uses: actions/setup-python@v4
+<span class="w"> </span>      with:
+<span class="w"> </span>        python-version: 3.x
 </pre></div>
 <h2 id="pricing">    pricing <small><a href="#pricing" class="text-secondary">¶</a></small></h2><hr class="my-3"><p>pre-commit.ci will always be <strong>free for open source repositories</strong>.</p>
 <p>for private and organization repository support see the <a href="https://github.com/marketplace/pre-commit-ci-lite">GitHub Marketplace</a>.</p>
