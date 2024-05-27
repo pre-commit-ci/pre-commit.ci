@@ -37,6 +37,7 @@ here is [an example autoupdate pull request].
 
 **re-running a pull request**: you can trigger a re-run on a pull request by
 commenting `pre-commit.ci run` (must appear on a line by itself).
+alternatively, one can attach a `pre-commit.ci run` label to the pull request.
 
 **skipping push runs**: skip a run by putting `[skip ci]`, `[ci skip]`,
 `[skip pre-commit.ci]`, or `[pre-commit.ci skip]` in the commit message.
@@ -56,7 +57,7 @@ below.
 =r=
     =c= [`autofix_prs`](_#configuration-autofix_prs)
     =c= (optional, default: `true`) whether to autofix pull requests.  when
-        disabled, comment "pre-commit.ci autofix" on a pull request to
+        disabled, comment / label "pre-commit.ci autofix" to a pull request to
         manually trigger auto-fixing.
 =r=
     =c= [`autoupdate_branch`](_#configuration-autoupdate_branch)
