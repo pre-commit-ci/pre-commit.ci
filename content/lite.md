@@ -72,6 +72,33 @@ jobs:
       if: always()
 ```
 
+pre-commit ci will skip pushes made by bots to prevent infinite loops.
+to trigger an autofix in that scenario, set up a `labeled` trigger:
+
+```diff
+--- a/.github/workflows/pre-commit.yml
++++ b/.github/workflows/pre-commit.yml
+@@ -1,13 +1,19 @@
+ on:
+   pull_request:
++    types: [labeled, opened, reopened, synchronize]
+   push:
+     branches: [main, test-me-*]
+
+ jobs:
+   main:
++    if: "github.event.action != 'labeled' || github.event.label.name == 'pre-commit ci run'"
+     runs-on: ubuntu-latest
+     steps:
+     - uses: actions/checkout@v3
++    - run: gh pr edit ${{ github.event.number }} --remove-label 'pre-commit ci run'
++      if: github.event.action == 'labeled' && github.event.label.name == 'pre-commit ci run'
++      env:
++        GH_TOKEN: ${{ github.token }}
+     - uses: actions/setup-python@v4
+       with:
+         python-version: 3.x
+```
 
 [GitHub Application]: https://github.com/apps/pre-commit-ci-lite/installations/new
 [GitHub action]: https://github.com/pre-commit-ci/lite-action
