@@ -27,6 +27,8 @@ faster builds!
 **automatic updates:** pre-commit.ci will periodically [autoupdate] your
 configuration ensuring that your hook versions are kept up to date.  this
 autoupdate is currently scheduled weekly at approximately 16:00 UTC Monday.
+if you configure your hooks in the `pre-commit autoupdate --freeze` format
+then autoupdating will continue to specify SHAs instead of tags.
 
 here is [an example autoupdate pull request].
 
