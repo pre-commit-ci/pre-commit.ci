@@ -119,6 +119,10 @@ ci:
     submodules: false
 ```
 
+### behavior
+
+pre-commit.ci can pin repos to commit SHAs instead of tags. first, run `pre-commit autoupdate --freeze` and merge that change to your main branch. subsequent pre-commit.ci runs will continue to use commit SHAs.
+
 ## alternative using github actions
 
 pre-commit.ci also provides a [lite version](./lite.html) which adds auto
