@@ -87,12 +87,12 @@ def _render_address(code: str) -> str:
 
 
 class Renderer(markdown_code_blocks.CodeRenderer):
-    def link(self, link: str, text: str | None, title: str | None) -> str:
-        if link.startswith(SELF_LINK_PREFIX):
-            a_id = link[len(SELF_LINK_PREFIX):]
+    def link(self, text: str, url: str, title: str | None = None) -> str:
+        if url.startswith(SELF_LINK_PREFIX):
+            a_id = url[len(SELF_LINK_PREFIX):]
             return f'<a id="{a_id}" href="#{a_id}">{text}</a>'
         else:
-            return super().link(link, text, title)
+            return super().link(text, url, title)
 
     def heading(self, text: str, level: int) -> str:
         match = ID_RE.search(text)
@@ -110,16 +110,11 @@ class Renderer(markdown_code_blocks.CodeRenderer):
             ret += '<hr class="my-3">'
         return ret
 
-    def image(
-            self,
-            src: str,
-            alt: str = '',
-            title: str | None = None,
-    ) -> str:
+    def image(self, text: str, url: str, title: str | None = None) -> str:
         return (
             f'<img '
-            f'    src="{html.escape(src)}"'
-            f'    alt="{html.escape(alt)}"'
+            f'    src="{html.escape(url)}"'
+            f'    alt="{html.escape(text)}"'
             f'    class="img-fluid img-thumbnail"'
             f'>'
         )
