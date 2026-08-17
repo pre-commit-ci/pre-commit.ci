@@ -190,12 +190,12 @@ to trigger an autofix in that scenario, set up a <code>labeled</code> trigger:</
 
 <span class="w"> </span>jobs:
 <span class="w"> </span>  main:
-<span class="gi">+    if: &quot;github.event.action != &#39;labeled&#39; || github.event.label.name == &#39;pre-commit ci run&#39;&quot;</span>
+<span class="gi">+    if: "github.event.action != 'labeled' || github.event.label.name == 'pre-commit ci run'"</span>
 <span class="w"> </span>    runs-on: ubuntu-latest
 <span class="w"> </span>    steps:
 <span class="w"> </span>    - uses: actions/checkout@v3
-<span class="gi">+    - run: gh pr edit ${{ github.event.number }} --remove-label &#39;pre-commit ci run&#39;</span>
-<span class="gi">+      if: github.event.action == &#39;labeled&#39; &amp;&amp; github.event.label.name == &#39;pre-commit ci run&#39;</span>
+<span class="gi">+    - run: gh pr edit ${{ github.event.number }} --remove-label 'pre-commit ci run'</span>
+<span class="gi">+      if: github.event.action == 'labeled' &amp;&amp; github.event.label.name == 'pre-commit ci run'</span>
 <span class="gi">+      env:</span>
 <span class="gi">+        GH_TOKEN: ${{ github.token }}</span>
 <span class="w"> </span>    - uses: actions/setup-python@v4
