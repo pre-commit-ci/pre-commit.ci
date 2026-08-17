@@ -1,2 +1,2 @@
-markdown-code-blocks>=3.0.0,<3.2
+markdown-code-blocks>=3.2.0
 markdown-to-presentation>=0.0.12
