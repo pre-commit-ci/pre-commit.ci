@@ -25,6 +25,6 @@ push: venv
 
 .PHONY: clean
 clean:
-	rm -rf venv index.html
+	rm -rf venv *.html
 
 .SECONDARY:
