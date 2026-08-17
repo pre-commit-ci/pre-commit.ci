@@ -45,8 +45,8 @@ Below lists our **Cookie IDs** and **Purposes**:
 
 **How do I control Cookies?**
 
-You may also refuse to accept cookies from our Services at any time by activatin
- the setting on your browser which allows you to refuse cookies. Further
+You may also refuse to accept cookies from our Services at any time by activating
+the setting on your browser which allows you to refuse cookies. Further
 information about the procedure to follow in order to disable cookies can be
 found on your Internet browser provider’s website via your help screen. For
 additional guidance please visit the
