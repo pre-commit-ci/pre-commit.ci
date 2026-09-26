@@ -25,14 +25,18 @@ faster builds!
 ![pre-commit.ci build output](img/build.png)
 
 **automatic updates:** pre-commit.ci will periodically [autoupdate] your
-configuration ensuring that your hook versions are kept up to date.  this
-autoupdate is currently scheduled weekly at approximately 16:00 UTC Monday.
+configuration ensuring that your hook versions are kept up to date.
+[`--freeze` format] is automatically preserved.
+
+this autoupdate is currently scheduled weekly at approximately 16:00 UTC
+Monday.
 
 here is [an example autoupdate pull request].
 
 ![pre-commit.ci auto updating a repository](img/autoupdate.png)
 
 [autoupdate]: https://pre-commit.com/#pre-commit-autoupdate
+[`--freeze` format]: https://pre-commit.com/#pre-commit-autoupdate
 [an example autoupdate pull request]: https://github.com/asottile/pyupgrade/pull/365
 
 **re-running a pull request**: you can trigger a re-run on a pull request by
